@@ -1,0 +1,47 @@
+[
+  {
+    "timestamp": "2026-08-25T14:00:00+00:00",
+    "host": "IT-ADMIN-01",
+    "user": "admin_it",
+    "src_ip": "10.10.1.10",
+    "event_id": "EVT101",
+    "log_source": "Windows Security Log",
+    "event": "Successful login for user admin_it via RDP during scheduled maintenance window"
+  },
+  {
+    "timestamp": "2026-08-25T14:05:00+00:00",
+    "host": "IT-ADMIN-01",
+    "user": "admin_it",
+    "src_ip": "10.10.1.10",
+    "event_id": "EVT102",
+    "log_source": "Patch Management",
+    "event": "Windows Update KB5041234 installed successfully, system scheduled for reboot"
+  },
+  {
+    "timestamp": "2026-08-25T14:10:00+00:00",
+    "host": "BACKUP-SRV-01",
+    "user": "svc_backup",
+    "src_ip": "10.10.1.20",
+    "event_id": "EVT103",
+    "log_source": "Backup Software",
+    "event": "Nightly backup job completed successfully, 1.2TB transferred to offsite storage"
+  },
+  {
+    "timestamp": "2026-08-25T14:15:00+00:00",
+    "host": "DEV-PC-03",
+    "user": "tran.thi.b",
+    "src_ip": "10.10.2.30",
+    "event_id": "EVT104",
+    "log_source": "Sysmon",
+    "event": "Developer executed cmd.exe /c npm install for routine project dependency setup"
+  },
+  {
+    "timestamp": "2026-08-25T14:20:00+00:00",
+    "host": "HR-PC-05",
+    "user": "le.van.c",
+    "src_ip": "10.10.3.15",
+    "event_id": "EVT105",
+    "log_source": "VPN Gateway",
+    "event": "User connected via corporate VPN from registered home IP address, MFA verified"
+  }
+]

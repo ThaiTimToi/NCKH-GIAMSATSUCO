@@ -1,0 +1,164 @@
+[
+  {
+    "rule_id": "R001",
+    "technique_id": "T1566.001",
+    "technique_name": "Phishing: Spearphishing Attachment",
+    "tactic": "Initial Access",
+    "keywords": ["malicious attachment", "macro enabled", "enable content", "suspicious email attachment"],
+    "description": "Phát hiện dấu hiệu người dùng mở file đính kèm/bật macro từ email lừa đảo.",
+    "severity_weight": 25
+  },
+  {
+    "rule_id": "R002",
+    "technique_id": "T1204.002",
+    "technique_name": "User Execution: Malicious File",
+    "tactic": "Execution",
+    "keywords": ["user opened", "double-clicked", "executed attachment"],
+    "description": "Người dùng chủ động thực thi file độc hại (thường sau khi bị lừa qua phishing).",
+    "severity_weight": 20
+  },
+  {
+    "rule_id": "R003",
+    "technique_id": "T1059.001",
+    "technique_name": "Command and Scripting Interpreter: PowerShell",
+    "tactic": "Execution",
+    "keywords": ["powershell -enc", "powershell -encodedcommand", "invoke-expression", "iex (", "downloadstring"],
+    "description": "Phát hiện thực thi PowerShell được encode/obfuscate hoặc tải payload từ xa.",
+    "severity_weight": 25
+  },
+  {
+    "rule_id": "R004",
+    "technique_id": "T1059.003",
+    "technique_name": "Command and Scripting Interpreter: Windows Command Shell",
+    "tactic": "Execution",
+    "keywords": ["cmd.exe /c", "cmd /c whoami", "cmd.exe /k"],
+    "description": "Thực thi lệnh bất thường qua cmd.exe, thường xuất hiện sau khai thác lỗ hổng.",
+    "severity_weight": 15
+  },
+  {
+    "rule_id": "R005",
+    "technique_id": "T1547.001",
+    "technique_name": "Boot or Logon Autostart Execution: Registry Run Keys",
+    "tactic": "Persistence",
+    "keywords": ["currentversion\\run", "hkcu\\software\\microsoft\\windows\\currentversion\\run", "startup folder"],
+    "description": "Tạo persistence bằng cách thêm registry run key hoặc mục khởi động cùng hệ thống.",
+    "severity_weight": 20
+  },
+  {
+    "rule_id": "R006",
+    "technique_id": "T1078",
+    "technique_name": "Valid Accounts",
+    "tactic": "Persistence",
+    "keywords": ["login outside business hours", "unusual login location", "impossible travel"],
+    "description": "Tài khoản hợp lệ bị lạm dụng để duy trì quyền truy cập (đăng nhập bất thường).",
+    "severity_weight": 15
+  },
+  {
+    "rule_id": "R007",
+    "technique_id": "T1055",
+    "technique_name": "Process Injection",
+    "tactic": "Defense Evasion",
+    "keywords": ["process hollowing", "dll injection", "createremotethread", "reflective dll"],
+    "description": "Kỹ thuật che giấu mã độc bằng cách tiêm vào tiến trình hợp lệ.",
+    "severity_weight": 30
+  },
+  {
+    "rule_id": "R008",
+    "technique_id": "T1070.001",
+    "technique_name": "Indicator Removal: Clear Windows Event Logs",
+    "tactic": "Defense Evasion",
+    "keywords": ["wevtutil cl", "clear-eventlog", "event log cleared"],
+    "description": "Kẻ tấn công xoá event log để xoá dấu vết sau khi xâm nhập.",
+    "severity_weight": 30
+  },
+  {
+    "rule_id": "R009",
+    "technique_id": "T1027",
+    "technique_name": "Obfuscated Files or Information",
+    "tactic": "Defense Evasion",
+    "keywords": ["base64 encoded payload", "certutil -urlcache", "certutil -decode", "regsvr32 /s /u"],
+    "description": "Sử dụng LOLBins (certutil, regsvr32) hoặc encoding để né tránh phát hiện.",
+    "severity_weight": 25
+  },
+  {
+    "rule_id": "R010",
+    "technique_id": "T1110",
+    "technique_name": "Brute Force",
+    "tactic": "Credential Access",
+    "keywords": ["failed login", "multiple login attempts", "brute force", "account lockout"],
+    "description": "Nhiều lần đăng nhập thất bại liên tiếp trong thời gian ngắn.",
+    "severity_weight": 15
+  },
+  {
+    "rule_id": "R011",
+    "technique_id": "T1003.001",
+    "technique_name": "OS Credential Dumping: LSASS Memory",
+    "tactic": "Credential Access",
+    "keywords": ["mimikatz", "lsass.exe dump", "sekurlsa", "procdump lsass"],
+    "description": "Phát hiện hành vi dump credential từ bộ nhớ tiến trình LSASS.",
+    "severity_weight": 35
+  },
+  {
+    "rule_id": "R012",
+    "technique_id": "T1082",
+    "technique_name": "System Information Discovery",
+    "tactic": "Discovery",
+    "keywords": ["systeminfo", "whoami /all", "hostname &&"],
+    "description": "Thu thập thông tin hệ thống, thường là bước trinh sát sau khi xâm nhập.",
+    "severity_weight": 10
+  },
+  {
+    "rule_id": "R013",
+    "technique_id": "T1018",
+    "technique_name": "Remote System Discovery",
+    "tactic": "Discovery",
+    "keywords": ["net view", "arp -a", "nltest /dclist", "ping sweep"],
+    "description": "Dò quét các máy khác trong mạng nội bộ để chuẩn bị di chuyển ngang.",
+    "severity_weight": 15
+  },
+  {
+    "rule_id": "R014",
+    "technique_id": "T1021.002",
+    "technique_name": "Remote Services: SMB/Windows Admin Shares",
+    "tactic": "Lateral Movement",
+    "keywords": ["psexec", "admin$", "wmic /node:", "\\\\c$"],
+    "description": "Di chuyển ngang qua admin share hoặc PsExec/WMIC tới máy khác.",
+    "severity_weight": 30
+  },
+  {
+    "rule_id": "R015",
+    "technique_id": "T1071.001",
+    "technique_name": "Application Layer Protocol: Web Protocols (C2)",
+    "tactic": "Command and Control",
+    "keywords": ["beaconing", "c2 callback", "suspicious outbound https", "unusual user-agent"],
+    "description": "Dấu hiệu tiến trình giao tiếp định kỳ (beaconing) với máy chủ Command & Control.",
+    "severity_weight": 30
+  },
+  {
+    "rule_id": "R016",
+    "technique_id": "T1041",
+    "technique_name": "Exfiltration Over C2 Channel",
+    "tactic": "Exfiltration",
+    "keywords": ["large outbound transfer", "data staged", "zip archive uploaded", "exfiltration detected"],
+    "description": "Dấu hiệu dữ liệu lớn bị đóng gói và truyền ra ngoài qua kênh C2.",
+    "severity_weight": 35
+  },
+  {
+    "rule_id": "R017",
+    "technique_id": "T1486",
+    "technique_name": "Data Encrypted for Impact (Ransomware)",
+    "tactic": "Impact",
+    "keywords": [".locked", ".encrypted extension", "ransom note", "readme_to_decrypt", "files encrypted"],
+    "description": "Dấu hiệu rõ ràng của ransomware: file bị mã hoá hàng loạt, xuất hiện ransom note.",
+    "severity_weight": 40
+  },
+  {
+    "rule_id": "R018",
+    "technique_id": "T1490",
+    "technique_name": "Inhibit System Recovery",
+    "tactic": "Impact",
+    "keywords": ["vssadmin delete shadows", "wbadmin delete catalog", "bcdedit /set recoveryenabled no"],
+    "description": "Kẻ tấn công xoá bản sao lưu/shadow copy để ngăn khôi phục sau ransomware.",
+    "severity_weight": 40
+  }
+]

