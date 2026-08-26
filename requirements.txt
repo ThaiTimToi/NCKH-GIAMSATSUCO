@@ -1,0 +1,21 @@
+# ===== Backend API =====
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9        # bắt buộc để FastAPI nhận UploadFile
+pydantic==2.9.2
+
+# ===== Multi-Agent Framework =====
+langgraph==0.2.28
+langchain==0.3.1
+langchain-core==0.3.6
+
+# ===== LLM Providers (chọn 1 hoặc dùng cả 2, tuỳ API key có sẵn) =====
+langchain-anthropic==0.2.1     # dùng nếu có ANTHROPIC_API_KEY
+langchain-openai==0.2.0        # dùng nếu có OPENAI_API_KEY
+
+# ===== Database (sẽ dùng ở backend/database.py - bước sau) =====
+sqlalchemy==2.0.35
+aiosqlite==0.20.0
+
+# ===== Tiện ích =====
+python-dotenv==1.0.1           # đọc API key từ file .env
